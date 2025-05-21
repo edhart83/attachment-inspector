@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useCallback, ChangeEvent, DragEvent } from 'react';
-import NextImage from 'next/image'; // Renamed to avoid conflict with Lucide's Image icon
+import NextImage from 'next/image'; 
 import { UploadCloud, FileText, Image as ImageIcon, Layers, AlertCircle, Palette, Zap, FileCog, Minimize, Download, Loader2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
+import { ThemeToggleDropdown } from '@/components/theme-toggle-dropdown';
 
 import { analyzeImage, type AnalyzeImageOutput } from '@/ai/flows/analyze-image';
 
@@ -43,7 +44,6 @@ export default function AttachmentInspectorPage() {
     setError(null);
     setIsProcessing(false);
     setIsAnalyzing(false);
-    // Clear file input visually if possible (tricky without direct ref/form reset)
     const fileInput = document.getElementById('fileInput') as HTMLInputElement;
     if (fileInput) {
       fileInput.value = '';
@@ -63,7 +63,7 @@ export default function AttachmentInspectorPage() {
       setError(errorMsg);
       toast({ variant: "destructive", title: "Upload Error", description: `Invalid file type: ${file.type}` });
       setIsProcessing(false);
-      setSelectedFile(null); // Clear invalid file
+      setSelectedFile(null); 
       return;
     }
 
@@ -72,7 +72,7 @@ export default function AttachmentInspectorPage() {
       setError(errorMsg);
       toast({ variant: "destructive", title: "Upload Error", description: "File exceeds maximum size." });
       setIsProcessing(false);
-      setSelectedFile(null); // Clear invalid file
+      setSelectedFile(null); 
       return;
     }
 
@@ -98,7 +98,7 @@ export default function AttachmentInspectorPage() {
           .catch((err) => {
             console.error("AI Analysis Error:", err);
             const analysisErrorMsg = 'Failed to analyze image. The AI model might be unavailable or encountered an issue.';
-            setError(prevError => prevError || analysisErrorMsg); // Show analysis error if no upload error
+            setError(prevError => prevError || analysisErrorMsg); 
             toast({ variant: "destructive", title: "Analysis Error", description: "Could not analyze the image." });
             setAnalysis(null);
           })
@@ -113,7 +113,7 @@ export default function AttachmentInspectorPage() {
         toast({ variant: "destructive", title: "Image Load Error", description: "Failed to process image properties." });
         setIsProcessing(false);
         setIsAnalyzing(false);
-        setPreviewUrl(null); // Clear preview if image can't load
+        setPreviewUrl(null); 
         setSelectedFile(null);
       };
       img.src = dataUrl;
@@ -168,14 +168,19 @@ export default function AttachmentInspectorPage() {
   return (
     <>
       <div className="min-h-screen bg-background text-foreground flex flex-col items-center py-8 px-4 sm:px-6 lg:px-8">
-        <header className="mb-10 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-primary flex items-center justify-center">
-            <Palette size={40} className="mr-3 sm:size-48" />
-            Attachment Inspector
-          </h1>
-          <p className="text-muted-foreground mt-2 text-md sm:text-lg">
-            Upload an image to view its details and receive AI-powered analysis.
-          </p>
+        <header className="mb-10 text-center w-full max-w-5xl relative">
+          <div className="flex flex-col items-center justify-center">
+            <h1 className="text-4xl sm:text-5xl font-bold text-primary flex items-center">
+              <Palette className="mr-3 h-10 w-10 sm:h-12 sm:w-12 text-primary" />
+              Attachment Inspector
+            </h1>
+            <p className="text-muted-foreground mt-2 text-md sm:text-lg">
+              Upload an image to view its details and receive AI-powered analysis.
+            </p>
+          </div>
+          <div className="absolute top-0 right-0">
+            <ThemeToggleDropdown />
+          </div>
         </header>
 
         <main className="w-full max-w-5xl space-y-8">
@@ -196,7 +201,7 @@ export default function AttachmentInspectorPage() {
                 className={`block border-2 border-dashed rounded-lg p-8 text-center group transition-colors
                             ${isProcessing ? 'cursor-not-allowed bg-muted/50' : 'cursor-pointer hover:border-primary/70 bg-background hover:bg-accent/10'}
                             ${dragActive ? 'border-primary bg-primary/10' : 'border-border'}`}
-                onClick={isProcessing ? (e) => e.preventDefault() : undefined} // Prevent click when processing
+                onClick={isProcessing ? (e) => e.preventDefault() : undefined} 
               >
                 <Input
                   id="fileInput"
@@ -223,7 +228,7 @@ export default function AttachmentInspectorPage() {
                 )}
               </label>
             </CardContent>
-            {error && !isProcessing && ( // Only show error if not currently processing something else
+            {error && !isProcessing && ( 
               <CardFooter className="pt-4 border-t mt-4">
                 <p className="text-destructive text-sm flex items-center w-full">
                   <AlertCircle className="mr-2 h-5 w-5 flex-shrink-0" /> 
