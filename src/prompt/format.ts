@@ -4,7 +4,6 @@ export const formatPrompt = dedent(`
 
 Design a dark-themed mobile event ticketing app using React Native or Flutter that allows users to search for and manage tickets for events. Focus on an intuitive user experience with smooth transitions, elegant filtering, and modern visual style. Use bright accent colors (such as yellow) for emphasis and interactivity.
 
-
 ### 📱 Screens & Features
 
 #### 1. Search & Filter Screen

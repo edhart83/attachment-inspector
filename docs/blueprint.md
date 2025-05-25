@@ -1,4 +1,4 @@
-# **App Name**: Attachment Inspector
+# **App Name**: UI Attachment Inspector
 
 ## Core Features:
 
