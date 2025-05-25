@@ -1,6 +1,7 @@
 
 'use client';
 
+import ReactMarkdown from 'react-markdown'
 import { useState, useCallback, ChangeEvent, DragEvent } from 'react';
 import NextImage from 'next/image'; 
 import { UploadCloud, FileText, Image as ImageIcon, Layers, AlertCircle, Palette, Zap, FileCog, Minimize, Download, Loader2 } from 'lucide-react';
@@ -271,7 +272,7 @@ export default function AttachmentInspectorPage() {
                     <CardTitle className="flex items-center text-xl">
                       <Zap className="mr-2 h-6 w-6 text-primary" /> AI Analysis
                     </CardTitle>
-                    <CardDescription>Notable characteristics and potential issues identified by AI.</CardDescription>
+                    <CardDescription>Notable characteristics UI Components.</CardDescription>
                   </CardHeader>
                   <CardContent className="min-h-[180px] text-sm">
                     {isAnalyzing ? (
@@ -281,11 +282,11 @@ export default function AttachmentInspectorPage() {
                         <Skeleton className="h-4 w-5/6" />
                         <Skeleton className="h-4 w-3/4" />
                         <p className="text-sm text-muted-foreground mt-4 flex items-center">
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" /> AI is inspecting your image...
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Inspecting UI Elements...
                         </p>
                       </div>
                     ) : analysis ? (
-                      <p className="whitespace-pre-wrap leading-relaxed text-foreground">{analysis}</p>
+<p className="prose dark:prose-invert max-w-none text-sm"><ReactMarkdown>{analysis}</ReactMarkdown>
                     ) : error && !isProcessing && !isAnalyzing && !analysis ? ( 
                         <div className="text-destructive flex items-start">
                             <AlertCircle className="mr-2 h-5 w-5 mt-0.5 flex-shrink-0" /> 

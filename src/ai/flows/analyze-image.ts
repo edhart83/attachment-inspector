@@ -11,6 +11,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import {formatPrompt} from '@/prompt/format'
 
 const AnalyzeImageInputSchema = z.object({
   photoDataUri: z
@@ -22,7 +23,7 @@ const AnalyzeImageInputSchema = z.object({
 export type AnalyzeImageInput = z.infer<typeof AnalyzeImageInputSchema>;
 
 const AnalyzeImageOutputSchema = z.object({
-  description: z.string().describe('A description of the image and any potential issues.'),
+  description: z.string().describe('A prompt of the user interface image and its design characteristics.'),
 });
 export type AnalyzeImageOutput = z.infer<typeof AnalyzeImageOutputSchema>;
 
@@ -34,9 +35,15 @@ const analyzeImagePrompt = ai.definePrompt({
   name: 'analyzeImagePrompt',
   input: {schema: AnalyzeImageInputSchema},
   output: {schema: AnalyzeImageOutputSchema},
-  prompt: `You are an expert image analyst. Examine the provided image and provide a detailed description of its notable characteristics, such as color profile, compression artifacts, and any other relevant details.  Intelligently assess whether characteristics are actually 'notable' or 'issues'.
+  prompt: `You are an expert Prompt-Generator UI design expert. Examine the provided image of a user interface and provide a detailed description of its notable UI design characteristics, such as color themes, border styles, background color, font color, font type, feature (e.g Filter, Search form etc), and layout. Intelligently assess its characteristics 'notable' from a UI design perspective. Please response as following format.
 
-Image: {{media url=photoDataUri}}`,
+Image: {{media url=photoDataUri}}
+
+Example Prompt format:
+
+${formatPrompt}
+
+`,
 });
 
 const analyzeImageFlow = ai.defineFlow(
