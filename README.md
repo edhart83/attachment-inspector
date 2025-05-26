@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://res.cloudinary.com/ddjsyskef/image/upload/v1748224780/public/mbldlpbqw0mprnaqsiby.png" alt="UI Attachment Inspector" />
+  <img src="https://res.cloudinary.com/ddjsyskef/image/upload/v1748228419/public/yjunxp9mrx9ae00irdft.png" alt="UI Attachment Inspector" />
 </div>
 
 
