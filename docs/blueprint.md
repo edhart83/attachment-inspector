@@ -4,8 +4,8 @@
 
 - File Upload: Accepts image files (png, jpg, gif, webp) via drag and drop or file selection.
 - Image Display: Displays the selected image along with file details (name, size, type, dimensions).
-- AI-Powered Analysis: Leverages a generative AI tool to describe notable characteristics or potential issues (e.g., color profile, compression artifacts) with the image. The AI model intelligently assesses whether characteristics are actually 'notable' or 'issues'.
-- Action Suggestions: Presents a list of possible file-specific actions, such as conversion or reformatting.
+- AI-Powered Analysis: Leverages a generative AI tool to describe notable characteristics (e.g., color profile, layout, feature, etc.) with the image. The AI model intelligently assesses the characteristics actually 'notable'.
+- Action Suggestions: Presents a list of possible prompt-file-specific actions, such as conversion or reformatting.
 
 ## Style Guidelines:
 

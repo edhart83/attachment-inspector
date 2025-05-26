@@ -10,7 +10,7 @@ An application that allows you to inspect and analyze UI elements from images. T
 ## Features
 
 - Upload and analyze UI screenshots
-- AI-powered UI element detection and analysis
+- AI-powered UI element detection and analysis, using [Genkit](https://genkit.dev/)
 - Support for PNG, JPG, GIF, and WEBP formats
 - Drag and drop interface
 - Real-time analysis results
