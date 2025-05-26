@@ -535,7 +535,7 @@ export default function AttachmentInspectorPage() {
                       <div>
                         Download Prompt
                         <p className="text-xs text-muted-foreground">
-                          Save the uploaded image.
+                          Download the prompt.
                         </p>
                       </div>
                     </Button>

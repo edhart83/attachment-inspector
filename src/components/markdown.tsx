@@ -3,33 +3,6 @@ import React, { memo } from "react";
 import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-// --- Custom rehype plugin to color hex codes ---
-import { visit } from "unist-util-visit";
-
-function rehypeColorHexCodes() {
-  return (tree: any) => {
-    visit(tree, "text", (node, index, parent) => {
-      if (typeof node.value !== "string") return;
-      const regex = /(#[A-Fa-f0-9]{6}|#[A-Fa-f0-9]{3})/g;
-      const parts = node.value.split(regex);
-      if (parts.length <= 1) return;
-      const newChildren = parts.map((part: string) => {
-        if (regex.test(part)) {
-          return {
-            type: "element",
-            tagName: "span",
-            properties: { style: `color: ${part}` },
-            children: [{ type: "text", value: part }],
-          };
-        }
-        return { type: "text", value: part };
-      });
-      parent.children.splice(index, 1, ...newChildren);
-    });
-  };
-}
-// --- End custom plugin ---
-
 const components: Partial<Components> = {
   pre: ({ children }) => <>{children}</>,
   ol: ({ node, children, ...props }) => {
@@ -118,15 +91,10 @@ const components: Partial<Components> = {
 };
 
 const remarkPlugins = [remarkGfm];
-const rehypePlugins = [rehypeColorHexCodes];
 
 const NonMemoizedMarkdown = ({ children }: { children: string }) => {
   return (
-    <ReactMarkdown
-      remarkPlugins={remarkPlugins}
-      rehypePlugins={rehypePlugins}
-      components={components}
-    >
+    <ReactMarkdown remarkPlugins={remarkPlugins} components={components}>
       {children}
     </ReactMarkdown>
   );
