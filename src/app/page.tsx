@@ -53,11 +53,7 @@ const ALLOWED_FILE_TYPES = [
   "image/webp",
 ];
 
-export default function AttachmentInspectorPage({
-  searchParams = {},
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined }
-}) {
+export default function AttachmentInspectorPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [fileDetails, setFileDetails] = useState<FileDetails | null>(null);
