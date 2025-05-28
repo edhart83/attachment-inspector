@@ -17,7 +17,6 @@ import {
   Check,
 } from "lucide-react";
 
-// components
 import { Markdown } from "@/components/markdown";
 import { Button } from "@/components/ui/button";
 import {
