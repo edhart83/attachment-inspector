@@ -2,7 +2,6 @@
 
 import { useState, useCallback, ChangeEvent, DragEvent } from "react";
 import NextImage from "next/image";
-import { useSearchParams } from "next/navigation";
 import {
   UploadCloud,
   Image as ImageIcon,
@@ -55,7 +54,6 @@ const ALLOWED_FILE_TYPES = [
 ];
 
 export default function AttachmentInspectorPage() {
-  const searchParams = useSearchParams();
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [fileDetails, setFileDetails] = useState<FileDetails | null>(null);
