@@ -1,80 +1,66 @@
-<div align="center">
-  <img src="https://res.cloudinary.com/ddjsyskef/image/upload/v1748224780/public/mbldlpbqw0mprnaqsiby.png" alt="UI Attachment Inspector" />
-</div>
+# Attachment Inspector
 
-
-# UI Attachment Inspector
-
-An application that allows you to inspect and analyze UI elements from images. This tool helps developers and designers understand the structure and components of web interfaces, and the Prompt result able to generate app with Code Builder likes [Bolt](https://bolt.new), [V0](https://v0.dev), [Loveable](https://loveable.dev), and [Firebase Studio](https://studio.firebase.google.com).
+A modern web application for inspecting and analyzing image attachments with AI-powered analysis, color profiles, compression artifacts, and more.
 
 ## Features
 
-- Upload and analyze UI screenshots
-- AI-powered UI element detection and analysis, using [Genkit](https://genkit.dev/)
-- Support for PNG, JPG, GIF, and WEBP formats
-- Drag and drop interface
-- Real-time analysis results
-- Copy analysis to clipboard
+- User authentication (Sign up/Sign in)
+- Image analysis and inspection
+- AI-powered insights
+- Modern UI with shadcn/ui components
 - Dark/Light theme support
+- Responsive design
 
-## Prerequisites
+## Tech Stack
 
-- Node.js 18.x or later
-- npm or yarn package manager
+- Next.js 15.2.3
+- React 18
+- TypeScript
+- Tailwind CSS
+- shadcn/ui components
+- Zod for form validation
+- React Hook Form
 
 ## Getting Started
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/ekaone/attachment-inspector
-cd ui-attachment-inspector
+git clone [your-repo-url]
+cd attachment-inspector
 ```
 
 2. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Create a `.env.local` file in the root directory and add your environment variables:
-```env
-# GEMINI_API_KEY=
-```
-
-4. Start the development server:
+3. Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be available at `http://localhost:9002`
-
-## Usage
-
-1. Open the application in your browser
-2. Drag and drop an image or click to select a file
-3. Wait for the AI analysis to complete
-4. View the results and copy them to your clipboard if needed
-
-## Supported File Types
-
-- PNG
-- JPG/JPEG
-- GIF
-- WEBP
-
-Maximum file size: 10MB
+4. Open [http://localhost:9002](http://localhost:9002) in your browser.
 
 ## Development
 
-The main application code is located in `src/app/page.tsx`. Key components and features are organized in the following structure:
+- `npm run dev` - Start the development server
+- `npm run build` - Build the production application
+- `npm run start` - Start the production server
+- `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
 
-- `src/components/` - UI components
-- `src/hooks/` - Custom React hooks
-- `src/lib/` - Utility functions
-- `src/ai/` - AI analysis related code
+## Project Structure
+
+```
+attachment-inspector/
+├── src/
+│   ├── app/           # Next.js app directory
+│   ├── components/    # React components
+│   ├── lib/          # Utility functions
+│   └── styles/       # Global styles
+├── public/           # Static files
+└── package.json      # Project dependencies
+```
 
 ## Contributing
 
@@ -86,10 +72,6 @@ The main application code is located in `src/app/page.tsx`. Key components and f
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For support, please open an issue in the repository or contact the maintainers.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
