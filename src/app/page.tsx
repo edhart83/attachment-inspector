@@ -1,4 +1,4 @@
-"use client";
+// Remove "use client" since we don't need client-side rendering for the root layout
 
 import { useState, useCallback, ChangeEvent, DragEvent } from "react";
 import NextImage from "next/image";
@@ -53,7 +53,7 @@ const ALLOWED_FILE_TYPES = [
   "image/webp",
 ];
 
-export default function AttachmentInspectorPage() {
+export default async function AttachmentInspectorPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [fileDetails, setFileDetails] = useState<FileDetails | null>(null);
