@@ -1,5 +1,9 @@
 # Attachment Inspector
 
+<div align="center">
+  <img src="https://res.cloudinary.com/ddjsyskef/image/upload/v1748228419/public/yjunxp9mrx9ae00irdft.png" alt="UI Attachment Inspector" />
+</div>
+
 A modern web application for inspecting and analyzing image attachments with AI-powered analysis, color profiles, compression artifacts, and more.
 
 ## Features
