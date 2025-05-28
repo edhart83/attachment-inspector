@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useState, useCallback, ChangeEvent, DragEvent } from "react";
 import NextImage from "next/image";
@@ -53,7 +53,11 @@ const ALLOWED_FILE_TYPES = [
   "image/webp",
 ];
 
-export default function AttachmentInspectorPage() {
+export default function AttachmentInspectorPage({
+  searchParams = {},
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined }
+}) {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [fileDetails, setFileDetails] = useState<FileDetails | null>(null);
